@@ -8,24 +8,28 @@ By Tyrus Tenneson
 '''
 
 
-def solve_one(input):
-    return sum([1 if c == '(' else -1 for c in input])
+def solve_one(problem):
+    return sum([1 if c == '(' else -1 for c in problem])
 
 
-def solve_two(input):
+def solve_two(problem):
     floor = 0
-    for idx, c in enumerate(input):
+    for idx, c in enumerate(problem):
         floor += 1 if c == '(' else -1
         if floor == -1:
             return idx + 1
 
 
-def parse_input(file):
-    return file.read().strip()
+def parse_problem(f):
+    return f.read().strip()
+
+
+def print_solutions():
+    f = open('input', 'r')
+    problem = parse_problem(f)
+    print solve_one(problem)
+    print solve_two(problem)
 
 
 if __name__ == '__main__':
-    file = open('input', 'r')
-    input = parse_input(file)
-    print solve_one(input)
-    print solve_two(input)
+    print_solutions()

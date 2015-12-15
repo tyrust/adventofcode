@@ -8,28 +8,32 @@ By Tyrus Tenneson
 '''
 
 
-def solve_one(input):
+def solve_one(problem):
     total = 0
-    for dim in input:
+    for dim in problem:
         l, w, h = tuple(sorted(dim))
         total += (3 * l * w) + (2 * l * h) + (2 * w * h)
     return total
 
 
-def solve_two(input):
+def solve_two(problem):
     total = 0
-    for dim in input:
+    for dim in problem:
         l, w, h = tuple(sorted(dim))
         total += (2 * l) + (2 * w) + (l * w * h)
     return total
 
 
-def parse_input(file):
-    return [map(int, l.split('x')) for l in file.readlines()]
+def parse_problem(f):
+    return [map(int, l.split('x')) for l in f.readlines()]
+
+
+def print_solutions():
+    f = open('input', 'r')
+    problem = parse_problem(f)
+    print solve_one(problem)
+    print solve_two(problem)
 
 
 if __name__ == '__main__':
-    file = open('input', 'r')
-    input = parse_input(file)
-    print solve_one(input)
-    print solve_two(input)
+    print_solutions()
