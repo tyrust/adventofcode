@@ -6,7 +6,8 @@ Day 1
 By Tyrus Tenneson
 2015-12-14
 '''
-
+import os
+import sys
 
 def solve_one(problem):
     return sum([1 if c == '(' else -1 for c in problem])
@@ -25,7 +26,7 @@ def parse_problem(f):
 
 
 def print_solutions():
-    f = open('input', 'r')
+    f = open(os.path.join(sys.path[0], 'input'), 'r')
     problem = parse_problem(f)
     print solve_one(problem)
     print solve_two(problem)
