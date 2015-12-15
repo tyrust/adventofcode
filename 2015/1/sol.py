@@ -1,7 +1,16 @@
 #!/usr/bin/python
+'''
+Advent of Code 2015
+Day 1
+
+By Tyrus Tenneson
+2015-12-14
+'''
+
 
 def solve_one(input):
     return sum([1 if c == '(' else -1 for c in input])
+
 
 def solve_two(input):
     floor = 0
@@ -10,8 +19,10 @@ def solve_two(input):
         if floor == -1:
             return idx + 1
 
+
 def parse_input(file):
     return file.read().strip()
+
 
 if __name__ == '__main__':
     file = open('input', 'r')
