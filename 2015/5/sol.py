@@ -32,6 +32,7 @@ def solve_one(problem):
             nice += 1
     return nice
 
+
 # I did this in a really stupid way.
 def solve_two(problem):
     nice = 0
