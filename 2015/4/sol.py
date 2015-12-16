@@ -1,7 +1,7 @@
 #!/usr/bin/python
 '''
 Advent of Code 2015
-Day 3
+Day 4
 
 By Tyrus Tenneson
 2015-12-14
