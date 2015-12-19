@@ -65,8 +65,8 @@ def pair_count(string):
     return count
 
 
-def solve_one(problem):
-    password = sanitize(problem)
+def next_password(password):
+    password = sanitize(password)
     checks = (
         lambda password: longest_straight(password) >= 3,
         # lambda password: all([c in VALID_LETTERS for c in password]),
@@ -79,8 +79,12 @@ def solve_one(problem):
     return password
 
 
+def solve_one(problem):
+    return next_password(problem)
+
+
 def solve_two(problem):
-    return 'desu'
+    return next_password(problem)
 
 
 def parse_problem(f):
@@ -90,8 +94,9 @@ def parse_problem(f):
 def print_solutions():
     f = open(os.path.join(sys.path[0], 'input'), 'r')
     problem = parse_problem(f)
-    print solve_one(problem)
-    print solve_two(problem)
+    one = solve_one(problem)
+    print one
+    print solve_two(one)
 
 
 if __name__ == '__main__':
