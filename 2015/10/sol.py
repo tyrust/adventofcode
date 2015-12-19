@@ -10,10 +10,10 @@ import os
 import sys
 
 
-def solve_one(problem):
-    iterations = 40
+def solve(problem, iterations):
+    iterations = iterations
     string = problem
-    for _ in xrange(iterations):
+    for idx in xrange(iterations):
         new_string = ''
         counting, count = '', 0
         for digit in string:
@@ -25,11 +25,15 @@ def solve_one(problem):
                 count = 1
         new_string += '%d%s' % (count, counting) if count else ''
         string = new_string
-    return len(string)
+    return string
+
+
+def solve_one(problem):
+    return solve(problem, 40)
 
 
 def solve_two(problem):
-    return 'desu'
+    return solve(problem, 10)
 
 
 def parse_problem(f):
@@ -39,8 +43,10 @@ def parse_problem(f):
 def print_solutions():
     f = open(os.path.join(sys.path[0], 'input'), 'r')
     problem = parse_problem(f)
-    print solve_one(problem)
-    print solve_two(problem)
+    one = solve_one(problem)
+    print len(one)
+    # save some work
+    print len(solve_two(one))
 
 
 if __name__ == '__main__':
